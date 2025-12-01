@@ -5,18 +5,21 @@
  * Estudiante / Programador: Angel Flores
  * Tema 3. Estructuras no lineales.
  *      3.1 Recursividad
- * Problema: Sumar los elementos de una arreglo de manera recursiva.
+ * Problema: Sumar los n elementos de una arreglo de manera recursiva.
  * E-mail: miguelangelflto6@gmail.com
  * E-mail institucional: ti24110044@itess.edu.mx
- * Fecha: 19 - Noviembre - 2025
+ * Fecha: 28 - Noviembre - 2025
  */
 
-package tema3.estructurasnolineales;
+package tema3.estructurasnolineales.recursividad;
 
 public class LinearSum {
     
     
-    public static int sum(int[] nums, int idx) {
-        return 0;
+    public static int sum(int[] nums, int n) {
+        if(n == 0)
+            return 0;
+        else
+            return sum(nums, n - 1) + nums[n - 1];
     }
 }
