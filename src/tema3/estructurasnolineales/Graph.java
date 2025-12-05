@@ -31,17 +31,17 @@ public class Graph {
         graph.get(v).add(u);
     }
 
-//    public void print() {
-//        int nodo = 0;
-//        
-//        for(var al : graph) {
-//            System.out.print(nodo + ": ");
-//            for(var i : al)
-//                System.out.print(i + ", ");
-//            System.out.println("");
-//            nodo++;
-//        }
-//    }
+    public void print() {
+        int nodo = 0;
+        
+        for(var al : graph) {
+            System.out.print(nodo + ": ");
+            for(var i : al)
+                System.out.print(i + ", ");
+            System.out.println("");
+            nodo++;
+        }
+    }
     
     public List<List<Integer>> getVertices() {
         return this.graph;
@@ -52,5 +52,32 @@ public class Graph {
             return 0;
         
         return 1 + depth(graph.get(p).get(0));
+    }
+    
+    public int heightBad() {
+        int h = 0;
+        for(int p = 0; p < n; p++)
+            if(isExternal(p))
+                h = Math.max(h, depth(p));
+        return h;
+    }
+    
+    public int height(int p) {
+        int h = 0;
+        if(p == 0)
+            for(int i = 0; i < graph.get(p).size(); i++)
+                h = Math.max(h, 1 + height(graph.get(p).get(i)));
+        
+        for(int i = 1; i < graph.get(p).size(); i++)
+            h = Math.max(h,1 + height(graph.get(p).get(i)));
+        
+        return h;
+    }
+    
+    private boolean isExternal(int p) {
+        if(p == 0)
+            return graph.get(p).isEmpty();
+        else
+            return !(graph.get(p).size() > 1);
     }
 }

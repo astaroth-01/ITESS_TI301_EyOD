@@ -33,6 +33,10 @@ public class GraphTest{
         Graph arbol = crearArbolBinarioCompleto(totalNodos);
         
         System.out.println("Depth: " + arbol.depth(1000));
+        
+        System.out.println("Altura del arbol método lento: " + arbol.heightBad());
+        
+        System.out.println("Altura del arbol método rápido: " + arbol.height(0));
     }
     
     public static Graph crearArbolBinarioCompleto(int totalNodos) {
