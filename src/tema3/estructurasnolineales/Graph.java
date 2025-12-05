@@ -26,7 +26,7 @@ public class Graph {
         for (int i = 0; i < n; i++) {
             graph.add(new ArrayList<>());
         }
-        
+
         verticesVisited = new boolean[graph.size()];
     }
 
@@ -96,18 +96,34 @@ public class Graph {
     public void preorder(int p) {
         System.out.print(p + ", ");
         verticesVisited[p] = true;
-        if (p == 0) {
+        for (int i = 0; i < graph.get(p).size(); i++) {
+            if (!verticesVisited[graph.get(p).get(i)]) {
+                preorder(graph.get(p).get(i));
+            }
+        }
+        if(p == 0)
+            verticesVisited = new boolean[graph.size()];
+    }
+
+    public void postorder(int p) {
+
+        if(p == 0)
             for (int i = 0; i < graph.get(p).size(); i++) {
-                if ( !verticesVisited[graph.get(p).get(i)])
-                    preorder(graph.get(p).get(i));
+            if (!verticesVisited[graph.get(p).get(i)]) {
+                postorder(graph.get(p).get(i));
+            }
+        }
+        
+        for (int i = 1; i < graph.get(p).size(); i++) {
+            if (!verticesVisited[graph.get(p).get(i)]) {
+                postorder(graph.get(p).get(i));
             }
         }
 
-        for (int i = 1; i < graph.get(p).size(); i++) {
-            if (!verticesVisited[graph.get(p).get(i)])
-                preorder(graph.get(p).get(i));
-        }
+        System.out.print(p + ", ");
+        verticesVisited[p] = true;
+        if(p == 0)
+            verticesVisited = new boolean[graph.size()];
     }
-    
-    
+
 }
