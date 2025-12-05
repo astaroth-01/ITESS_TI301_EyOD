@@ -28,15 +28,21 @@ public class GraphTest{
         
         System.out.println("=== TEST ÁRBOL BINARIO CON CIENTOS DE NODOS ===\n");
         
-        int niveles = 20;
+        int niveles = 3;
         int totalNodos = (int) Math.pow(2, niveles) - 1;
         Graph arbol = crearArbolBinarioCompleto(totalNodos);
         
-        System.out.println("Depth: " + arbol.depth(1000));
+//        System.out.println("Depth: " + arbol.depth(1000));
         
         System.out.println("Altura del arbol método lento: " + arbol.heightBad());
         
         System.out.println("Altura del arbol método rápido: " + arbol.height(0));
+        
+        arbol.print();
+        
+        System.out.println("");
+        System.out.print("recorrido en preorder: ");
+        arbol.preorder(0);
     }
     
     public static Graph crearArbolBinarioCompleto(int totalNodos) {
