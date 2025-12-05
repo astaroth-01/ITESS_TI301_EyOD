@@ -13,6 +13,8 @@ package tema3.estructurasnolineales;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
 
@@ -101,19 +103,21 @@ public class Graph {
                 preorder(graph.get(p).get(i));
             }
         }
-        if(p == 0)
+        if (p == 0) {
             verticesVisited = new boolean[graph.size()];
+        }
     }
 
     public void postorder(int p) {
 
-        if(p == 0)
+        if (p == 0) {
             for (int i = 0; i < graph.get(p).size(); i++) {
-            if (!verticesVisited[graph.get(p).get(i)]) {
-                postorder(graph.get(p).get(i));
+                if (!verticesVisited[graph.get(p).get(i)]) {
+                    postorder(graph.get(p).get(i));
+                }
             }
         }
-        
+
         for (int i = 1; i < graph.get(p).size(); i++) {
             if (!verticesVisited[graph.get(p).get(i)]) {
                 postorder(graph.get(p).get(i));
@@ -122,8 +126,29 @@ public class Graph {
 
         System.out.print(p + ", ");
         verticesVisited[p] = true;
-        if(p == 0)
+        if (p == 0) {
             verticesVisited = new boolean[graph.size()];
+        }
     }
 
+    public static void inorder(int p) {
+
+    }
+
+    public void breadthfirst() {
+        Queue<Integer> Q = new LinkedList<>();
+        int p;
+        Q.offer(0);
+
+        while (!Q.isEmpty()) {
+            p = Q.poll();
+            System.out.print(p + ", ");
+            verticesVisited[p] = true;
+            for (int i = 0; i < graph.get(p).size(); i++) {
+                if (!verticesVisited[graph.get(p).get(i)]) {
+                    Q.offer(graph.get(p).get(i));
+                }
+            }
+        }
+    }
 }

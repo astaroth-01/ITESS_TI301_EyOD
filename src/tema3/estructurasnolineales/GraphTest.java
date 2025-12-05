@@ -34,17 +34,22 @@ public class GraphTest {
 //        System.out.println("Depth: " + arbol.depth(1000));
         System.out.println("Altura del arbol método lento: " + arbol.heightBad());
 
-        System.out.println("Altura del arbol método rápido: " + arbol.height(0));
+        System.out.println("Altura del arbol método rápido: " + arbol.height(0) + "\n");
 
+        System.out.print("Arbol: ");
         arbol.print();
 
         System.out.println("");
         System.out.print("recorrido en preorder: ");
         arbol.preorder(0);
-
+        
         System.out.println("");
         System.out.print("recorrido en postorder: ");
         arbol.postorder(0);
+        
+        System.out.println("");
+        System.out.print("BFS: ");
+        arbol.breadthfirst();
     }
 
     public static Graph crearArbolBinarioCompleto(int totalNodos) {
