@@ -6,6 +6,6 @@
 	<img src="Itess_Logos/academia_tics_blue.png" alt="itess-tics-logo" title="itess-tics-logo" />
 </div>
 
-:smile: `:smile:`
+:nerd_face:
 
-:blush: `:blush:`
+:mexico: 
