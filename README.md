@@ -3,7 +3,7 @@
 <div style="text-align: center;">09 de diciembre 2025</div>
 
 <div style="text-align: center;">
-	<img src="itess-logos/academia_tics_blue.png" alt="itess-tics-logo" title="itess-tics-logo" />
+	<img src="Itess_Logos/academia_tics_blue.png" alt="itess-tics-logo" title="itess-tics-logo" />
 </div>
 
 :smile: `:smile:`
